@@ -5,10 +5,12 @@ import os
 days_retention = os.environ.get('RETENTION_IN_DAYS', 90)
 access_key = os.environ.get('ACCESS_KEY')
 secret_key = os.environ.get('SECRET_KEY')
+aws_region = os.environ.get('AWS_REGION')
 logs = boto3.client(
     'logs',
     aws_access_key_id = access_key,
     aws_secret_access_key = secret_key,
+    region_name = aws_region or 'ap-southeast-2'
 )
 
 
